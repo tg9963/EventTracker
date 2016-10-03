@@ -12,6 +12,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *userTrackingCV;
+@property (nonatomic, strong) NSMutableArray *eventData;
 
 
 @end

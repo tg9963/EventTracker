@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EventHelper.h"
+#import "Users.h"
 
 @interface UserManager : NSObject
 
-+(UserManager *)sharedManager;
-@property(nonatomic, strong) NSString *userName;
+@property (nonatomic,strong) Users *currentUser;
 
++(UserManager *)sharedManager;
+-(Users*)getUserWithName:(NSString*)userName;
+-(BOOL)isUserTrackingEvent:(NSString*)eventId;
+-(void)startTrackingEvent:(NSString*)eventId;
+-(Users*)getCurrentUser;
 @end

@@ -12,14 +12,10 @@
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *eventName;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocation;
 @property (weak, nonatomic) IBOutlet UILabel *priceInfo;
 @property (weak, nonatomic) IBOutlet UIButton *trackButton;
 
-
-
--(void)setEventDict:(NSMutableDictionary*)dict;
-
+@property (nonatomic, strong) NSMutableDictionary *eventDict;
 @end

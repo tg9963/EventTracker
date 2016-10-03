@@ -7,29 +7,46 @@
 //
 
 #import "EventDetailViewController.h"
+#import "UserManager.h"
 
 @implementation EventDetailViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
-    
-    [self updateViews];
+    [self updateUI];
+    [self checkIfuserIsTracking];
+}
+
+-(void)checkIfuserIsTracking{
+    if ([[UserManager sharedManager] isUserTrackingEvent:[_eventDict valueForKey:@"eventId"]]) {
+        [self.trackButton setBackgroundColor:[UIColor blackColor]];
+        [self.trackButton setTitle:@"You are tracking this event" forState:UIControlStateNormal];
+        self.trackButton.userInteractionEnabled = NO;
+    }else{
+        [self.trackButton setBackgroundColor:[UIColor redColor]];
+        [self.trackButton setTitle:@"Start Tracking" forState:UIControlStateNormal];
+        self.trackButton.userInteractionEnabled = YES;
+    }
+}
+
+- (IBAction)trackingButtonClicked:(id)sender {
+    [[UserManager sharedManager] startTrackingEvent:[_eventDict valueForKey:@"eventId"]];
+    [self checkIfuserIsTracking];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
 }
 
--(void)updateViews{
-    self.eventImageView.image = [UIImage imageNamed:@"Event-9"];
+-(void)updateUI{
+    self.eventImageView.image = [UIImage imageNamed:[_eventDict valueForKey:@"eventImage"]];
+    self.eventName.text = [_eventDict valueForKey:@"eventName"];
+    self.eventLocation.text = [_eventDict valueForKey:@"eventLocation"];
+    self.priceInfo.text = [_eventDict valueForKey:@"eventPrice"];
 }
 
 -(void)setEventDict:(NSMutableDictionary*)dict{
-    self.eventImageView.image = [UIImage imageNamed:dict[@"imageName"]];
-    self.eventName.text = dict[@"eventName"];
-    self.eventLocation.text = dict[@"eventLocation"];
-    self.priceInfo.text = dict[@"eventPrice"];
-    
+    _eventDict = dict;
 }
 
 @end

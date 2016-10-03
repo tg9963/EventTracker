@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventHelper.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UIButton *Submit;

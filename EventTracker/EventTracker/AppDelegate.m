@@ -42,12 +42,6 @@
         NSString * storyboardName = @"Main";
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
         UserEventTrackingInfoViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"UserEventTrackingInfoViewController"];
-//        CATransition* transition = [CATransition animation];
-//        transition.duration = 0.1;
-//        transition.type = kCATransitionFade;
-//        transition.subtype = kCATransitionFromRight;
-//        [self.window.layer addAnimation:transition forKey:kCATransition];
-//        [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
         UINavigationController *navVc=(UINavigationController *) self.window.rootViewController;
         [navVc pushViewController:vc animated:YES];
     }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventHelper.h"
 
 @interface EventsCell : UICollectionViewCell
 +(NSString*)cellIdentifier;
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventName;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocation;
 @property (weak, nonatomic) IBOutlet UILabel *eventPrice;
+@property (weak, nonatomic) NSString *eventId;
 
 @end
 

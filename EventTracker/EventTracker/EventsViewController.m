@@ -33,12 +33,22 @@
     self.eventsCV.dataSource = self;
     isGrid = true;
     [self.layoutChangeButton setImage:[UIImage imageNamed:@"grid-view"]];
-    _eventData = [[NSMutableArray alloc] init];
     [self fetchData];
 }
 
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 -(void)fetchData{
-    // Get all events data
+    NSManagedObjectContext *managedObjectContext = [EventHelper managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Events"];
+    _eventData = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -75,10 +85,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     EventsCell  *cell = [cv dequeueReusableCellWithReuseIdentifier:[EventsCell cellIdentifier] forIndexPath:indexPath];
     NSDictionary *currEventDict = _eventData[indexPath.row];
-    cell.eventImage.image = [UIImage imageNamed:currEventDict[@"imageName"]];
-    cell.eventName.text = currEventDict[@"eventName"];
-    cell.eventLocation.text = currEventDict[@"eventLocation"];
-    cell.eventPrice.text = currEventDict[@"eventPrice"];
+    cell.eventImage.image = [UIImage imageNamed:[currEventDict valueForKey:@"eventImage"]];
+    cell.eventName.text = [currEventDict valueForKey:@"eventName"];
+    cell.eventLocation.text =  [currEventDict valueForKey:@"eventLocation"];
+    cell.eventPrice.text =  [currEventDict valueForKey:@"eventPrice"];
+    cell.eventId =  [currEventDict valueForKey:@"eventId"];
     return cell;
 }
 
@@ -86,10 +97,7 @@
     NSString * storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
     EventDetailViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"EventDetailViewController"];
-    
-    if ([vc respondsToSelector:@selector(setEventDict:)]) {
-        [vc setEventDict:[NSMutableDictionary new]];
-    }
+    [vc setEventDict:_eventData[indexPath.row]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
