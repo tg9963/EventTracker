@@ -144,9 +144,9 @@
                 [[EventHelper managedObjectContext] deleteObject:currObj];
                 NSError *error = nil;
                 if (![[EventHelper managedObjectContext] save:&error]) {
-                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
                 }else{
-                    NSLog(@"Event removed: %@",currObj);
+//                    NSLog(@"Event removed: %@",currObj);
                 }
             }
         }

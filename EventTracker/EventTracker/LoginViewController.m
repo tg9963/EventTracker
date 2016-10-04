@@ -44,9 +44,9 @@
     
     NSError *error = nil;
     if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }else{
-        NSLog(@"Data saved for event id: %@",eventDict[@"eventId"]);
+//        NSLog(@"Data saved for event id: %@",eventDict[@"eventId"]);
     }
     
 }

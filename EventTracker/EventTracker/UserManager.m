@@ -78,13 +78,13 @@
     NSString *userId = [NSString stringWithFormat: @"%@",[[self getCurrentUser] userId]];
     [newEvent setValue:userId forKey:@"userId"];
     [newEvent setValue:eventId forKey:@"eventId"];
-    NSManagedObjectID *moID = [[self getCurrentUser] objectID];
+//    NSManagedObjectID *moID = [[self getCurrentUser] objectID];
     
     NSError *error = nil;
     if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }else{
-        NSLog(@"User %@ started tracking event %@",moID,eventId);
+//        NSLog(@"User %@ started tracking event %@",moID,eventId);
     }
 }
 
