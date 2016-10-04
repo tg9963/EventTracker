@@ -17,8 +17,11 @@
 
 @interface UserEventTrackingInfoViewController()
 
-@property(nonatomic,strong) NSMutableDictionary *userTrackingData;
 
+@property(nonatomic, strong) UIImageView *movingCell;
+@property(nonatomic,strong) NSMutableDictionary *userTrackingData;
+@property(nonatomic,strong) NSIndexPath *startCellIndex;
+@property(nonatomic,strong) NSIndexPath *endCellIndex;
 @end
 
 
@@ -31,12 +34,33 @@
     _userTrackingData = [[NSMutableDictionary alloc] init];
     self.userTrackingCV.delegate = self;
     self.userTrackingCV.dataSource = self;
-    [self fetchData];
+    [self updateData];
+    
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.delegate = self;
+    lpgr.delaysTouchesBegan = YES;
+    [self.userTrackingCV addGestureRecognizer:lpgr];
 }
 
--(void)fetchData{
+-(NSArray*)fetchData{
     // update _userTrackingData
+    NSError *error = nil;
+    NSArray *userTrackingobjects = [self fetchUserEvents];
     
+    if (userTrackingobjects.count > 0) {
+        NSArray *eventIds = [userTrackingobjects valueForKey:@"eventId"];
+         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        [fetchRequest setEntity:[NSEntityDescription entityForName:@"Events" inManagedObjectContext:[EventHelper managedObjectContext]]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"eventId IN %@",eventIds];
+        [fetchRequest setPredicate:predicate];
+        NSArray *eventobjects = [[EventHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+        
+        return eventobjects;
+    }
+    return nil;
+}
+
+-(NSArray*)fetchUserEvents{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:[NSEntityDescription entityForName:@"UserEventTracker" inManagedObjectContext:[EventHelper managedObjectContext]]];
     NSString *userId = [NSString stringWithFormat:@"%@",[[[UserManager sharedManager] getCurrentUser] userId]];
@@ -45,19 +69,49 @@
     
     NSError *error = nil;
     NSArray *userTrackingobjects = [[EventHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    return userTrackingobjects;
+}
+
+-(void)updateData{
+    NSArray *eventObjects = [self fetchData];
     
-    if (userTrackingobjects.count > 0) {
-        NSArray *eventIds = [userTrackingobjects valueForKey:@"eventId"];
-        fetchRequest = [[NSFetchRequest alloc] init];
-        [fetchRequest setEntity:[NSEntityDescription entityForName:@"Events" inManagedObjectContext:[EventHelper managedObjectContext]]];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"eventId IN %@",eventIds];
-        [fetchRequest setPredicate:predicate];
-        NSArray *eventobjects = [[EventHelper managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    if (eventObjects.count >0) {
+        _eventData = [[NSMutableArray alloc] initWithArray:eventObjects];
+    }else{
+        _eventData = [[NSMutableArray alloc] init];
+    }
+}
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)longRecognizer {
+    
+    CGPoint locationPoint = [longRecognizer locationInView:self.userTrackingCV];
+    
+    if (longRecognizer.state == UIGestureRecognizerStateBegan) {
         
-        if (eventobjects.count >0) {
-            _eventData = [[NSMutableArray alloc] initWithArray:eventobjects];
-        }else{
-            _eventData = [[NSMutableArray alloc] init];
+        _startCellIndex = [self.userTrackingCV indexPathForItemAtPoint:locationPoint];
+        UICollectionViewCell *cell = [self.userTrackingCV cellForItemAtIndexPath:_startCellIndex];
+        
+        UIGraphicsBeginImageContext(cell.bounds.size);
+        [cell.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *cellImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        self.movingCell = [[UIImageView alloc] initWithImage:cellImage];
+        [self.movingCell setCenter:locationPoint];
+        [self.movingCell setAlpha:1];
+        [self.userTrackingCV addSubview:self.movingCell];
+    }else if (longRecognizer.state == UIGestureRecognizerStateChanged) {
+        [self.movingCell setCenter:locationPoint];
+    }else if (longRecognizer.state == UIGestureRecognizerStateEnded) {
+        [self.movingCell removeFromSuperview];
+        
+        _endCellIndex = [self.userTrackingCV indexPathForItemAtPoint:locationPoint];
+        
+        if (_endCellIndex.row != _startCellIndex.row) {
+            NSDictionary *currDict = [_eventData objectAtIndex:_startCellIndex.row];
+            [_eventData removeObjectAtIndex:_startCellIndex.row];
+            [_eventData insertObject:currDict atIndex:_endCellIndex.row];
+            [self.userTrackingCV reloadData];
         }
     }
 }
@@ -80,6 +134,36 @@
     }
 }
 
+-(void)removeEntryFromUserTrackingEntity:(NSDictionary*)currEventDict{
+    
+    NSArray *eventobjects = [self fetchUserEvents];
+    
+    if (eventobjects.count >0) {
+        for (NSManagedObject *currObj in eventobjects) {
+            if ([[currObj valueForKey:@"eventId"] isEqualToString:[currEventDict valueForKey:@"eventId"]]) {
+                [[EventHelper managedObjectContext] deleteObject:currObj];
+                NSError *error = nil;
+                if (![[EventHelper managedObjectContext] save:&error]) {
+                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                }else{
+                    NSLog(@"Event removed: %@",currObj);
+                }
+            }
+        }
+    }
+}
+
+- (IBAction)stopTrackingClicked:(UIButton*)sender {
+    NSIndexPath *currIndexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
+    [self.userTrackingCV performBatchUpdates:^{
+        [self removeEntryFromUserTrackingEntity:_eventData[currIndexPath.row]];
+        [_eventData removeObjectAtIndex:currIndexPath.row];
+        [self.userTrackingCV deleteItemsAtIndexPaths:@[currIndexPath]];
+    } completion:^(BOOL finished){
+        [self.userTrackingCV reloadData];
+    }];
+    
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -97,6 +181,7 @@
     cell.eventLocation.text =  [currEventDict valueForKey:@"eventLocation"];
     cell.eventPrice.text =  [currEventDict valueForKey:@"eventPrice"];
     cell.eventId =  [currEventDict valueForKey:@"eventId"];
+    cell.stopTrackingButton.tag = indexPath.row;
     return cell;
 
 }
@@ -114,7 +199,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(CGRectGetWidth(self.userTrackingCV.bounds),350-VGAP);
+    return CGSizeMake(CGRectGetWidth(self.userTrackingCV.bounds),400-VGAP);
 }
 
 @end

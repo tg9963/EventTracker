@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserEventTrackingInfoViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface UserEventTrackingInfoViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UIGestureRecognizerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *userTrackingCV;

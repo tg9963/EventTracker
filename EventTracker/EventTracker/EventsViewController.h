@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventName;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocation;
 @property (weak, nonatomic) IBOutlet UILabel *eventPrice;
+@property (weak, nonatomic) IBOutlet UIButton *stopTrackingButton;
+
 @property (weak, nonatomic) NSString *eventId;
 
 @end

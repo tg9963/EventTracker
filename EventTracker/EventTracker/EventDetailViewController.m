@@ -20,10 +20,14 @@
 -(void)checkIfuserIsTracking{
     if ([[UserManager sharedManager] isUserTrackingEvent:[_eventDict valueForKey:@"eventId"]]) {
         [self.trackButton setBackgroundColor:[UIColor blackColor]];
-        [self.trackButton setTitle:@"You are tracking this event" forState:UIControlStateNormal];
+        [self.trackButton setTitle:@"You are tracking this event" forState:UIControlStateNormal |UIControlStateHighlighted];
+        [self.trackButton setImage:[UIImage imageNamed:@"track-tick"] forState:UIControlStateNormal];
+        [self.trackButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
+        [self.trackButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
         self.trackButton.userInteractionEnabled = NO;
     }else{
         [self.trackButton setBackgroundColor:[UIColor redColor]];
+        [self.trackButton setImage:[UIImage new] forState:UIControlStateNormal];
         [self.trackButton setTitle:@"Start Tracking" forState:UIControlStateNormal];
         self.trackButton.userInteractionEnabled = YES;
     }

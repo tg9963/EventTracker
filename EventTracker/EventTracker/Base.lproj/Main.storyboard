@@ -128,18 +128,18 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qd-Pe-OgD">
                                                     <rect key="frame" x="8" y="163" width="193" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvH-cf-aA0">
                                                     <rect key="frame" x="8" y="211" width="193" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7I-ba-iCN">
                                                     <rect key="frame" x="8" y="133" width="193" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -210,28 +210,30 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RX-PC-rKi">
                                 <rect key="frame" x="103" y="300" width="324" height="52"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em3-NG-LAU">
                                 <rect key="frame" x="103" y="448" width="324" height="52"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d6-nY-a4t">
                                 <rect key="frame" x="103" y="372" width="324" height="52"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdw-Ps-2xY">
                                 <rect key="frame" x="0.0" y="547" width="600" height="53"/>
                                 <color key="backgroundColor" red="1" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="pR8-CG-tbi"/>
+                                    <constraint firstAttribute="height" constant="65" id="pR8-CG-tbi"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start Tracking">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -285,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Po-nG-OoZ">
-                                <rect key="frame" x="0.0" y="47" width="600" height="553"/>
+                                <rect key="frame" x="0.0" y="44" width="594" height="556"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="djV-sq-TXC">
                                     <size key="itemSize" width="302" height="263"/>
@@ -295,7 +297,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="eventCell" id="GlI-zx-y9w" customClass="EventsCell">
-                                        <rect key="frame" x="149" y="0.0" width="302" height="263"/>
+                                        <rect key="frame" x="146" y="0.0" width="302" height="263"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="302" height="263"/>
@@ -307,27 +309,41 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-dE-27X">
                                                     <rect key="frame" x="8" y="163" width="193" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-Bl-CoS">
-                                                    <rect key="frame" x="8" y="211" width="193" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <rect key="frame" x="8" y="197" width="193" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAb-oY-AXU">
                                                     <rect key="frame" x="8" y="133" width="193" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnV-Ti-uRq">
+                                                    <rect key="frame" x="8" y="225" width="193" height="30"/>
+                                                    <color key="backgroundColor" red="1" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="7J2-j3-02j"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Stop Tracking">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="stopTrackingClicked:" destination="Kak-5E-Mmw" eventType="touchUpInside" id="NgK-6d-pdo"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Fua-dE-27X" firstAttribute="top" secondItem="zAb-oY-AXU" secondAttribute="bottom" constant="10" id="3Le-5g-q9Z"/>
+                                            <constraint firstItem="fnV-Ti-uRq" firstAttribute="centerX" secondItem="GlI-zx-y9w" secondAttribute="centerX" id="Ivo-I7-TPC"/>
                                             <constraint firstItem="Kfb-Bl-CoS" firstAttribute="top" secondItem="Fua-dE-27X" secondAttribute="bottom" constant="10" id="PpQ-7Y-17T"/>
                                             <constraint firstItem="nSq-Tb-cFL" firstAttribute="leading" secondItem="GlI-zx-y9w" secondAttribute="leading" id="Qm5-4e-F3m"/>
                                             <constraint firstItem="nSq-Tb-cFL" firstAttribute="height" secondItem="GlI-zx-y9w" secondAttribute="height" multiplier="0.6" id="ZWK-Ab-4Ri"/>
@@ -337,8 +353,10 @@
                                             <constraint firstItem="zAb-oY-AXU" firstAttribute="width" secondItem="GlI-zx-y9w" secondAttribute="width" id="gEc-L7-1Br"/>
                                             <constraint firstItem="Kfb-Bl-CoS" firstAttribute="width" secondItem="GlI-zx-y9w" secondAttribute="width" id="jEg-Z3-7wz"/>
                                             <constraint firstItem="Fua-dE-27X" firstAttribute="width" secondItem="GlI-zx-y9w" secondAttribute="width" id="jpH-M1-mJb"/>
+                                            <constraint firstItem="fnV-Ti-uRq" firstAttribute="width" secondItem="GlI-zx-y9w" secondAttribute="width" multiplier="0.25" id="l17-Ix-glm"/>
                                             <constraint firstItem="zAb-oY-AXU" firstAttribute="centerX" secondItem="GlI-zx-y9w" secondAttribute="centerX" id="qKJ-am-9lo"/>
                                             <constraint firstAttribute="trailing" secondItem="nSq-Tb-cFL" secondAttribute="trailing" id="rba-6O-d7y"/>
+                                            <constraint firstItem="fnV-Ti-uRq" firstAttribute="top" secondItem="Kfb-Bl-CoS" secondAttribute="bottom" constant="10" id="u2D-RO-CWE"/>
                                             <constraint firstItem="nSq-Tb-cFL" firstAttribute="top" secondItem="GlI-zx-y9w" secondAttribute="top" id="w5J-Yx-d1j"/>
                                         </constraints>
                                         <connections>
@@ -346,6 +364,7 @@
                                             <outlet property="eventLocation" destination="Fua-dE-27X" id="ifS-yS-Cyj"/>
                                             <outlet property="eventName" destination="zAb-oY-AXU" id="bfw-F5-fII"/>
                                             <outlet property="eventPrice" destination="Kfb-Bl-CoS" id="w12-ds-Vhe"/>
+                                            <outlet property="stopTrackingButton" destination="fnV-Ti-uRq" id="Uge-5w-lcp"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

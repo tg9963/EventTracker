@@ -26,6 +26,9 @@
 		D32520991DA282D100F42C77 /* UserEventTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = D32520911DA282D100F42C77 /* UserEventTracker.m */; };
 		D325209A1DA282D100F42C77 /* Events+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D32520931DA282D100F42C77 /* Events+CoreDataProperties.m */; };
 		D325209B1DA282D100F42C77 /* Events.m in Sources */ = {isa = PBXBuildFile; fileRef = D32520951DA282D100F42C77 /* Events.m */; };
+		D325209F1DA3C07D00F42C77 /* track-tick.png in Resources */ = {isa = PBXBuildFile; fileRef = D325209C1DA3C07D00F42C77 /* track-tick.png */; };
+		D32520A01DA3C07D00F42C77 /* track-tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D325209D1DA3C07D00F42C77 /* track-tick@2x.png */; };
+		D32520A11DA3C07D00F42C77 /* track-tick@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D325209E1DA3C07D00F42C77 /* track-tick@3x.png */; };
 		D3BBA4491DA0E29A008EC46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BBA4481DA0E29A008EC46D /* main.m */; };
 		D3BBA44C1DA0E29A008EC46D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BBA44B1DA0E29A008EC46D /* AppDelegate.m */; };
 		D3BBA44F1DA0E29A008EC46D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BBA44E1DA0E29A008EC46D /* LoginViewController.m */; };
@@ -84,6 +87,9 @@
 		D32520931DA282D100F42C77 /* Events+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Events+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D32520941DA282D100F42C77 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		D32520951DA282D100F42C77 /* Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Events.m; sourceTree = "<group>"; };
+		D325209C1DA3C07D00F42C77 /* track-tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-tick.png"; sourceTree = "<group>"; };
+		D325209D1DA3C07D00F42C77 /* track-tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-tick@2x.png"; sourceTree = "<group>"; };
+		D325209E1DA3C07D00F42C77 /* track-tick@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-tick@3x.png"; sourceTree = "<group>"; };
 		D3BBA4441DA0E29A008EC46D /* EventTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BBA4481DA0E29A008EC46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D3BBA44A1DA0E29A008EC46D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +241,9 @@
 				D325205D1DA196E300F42C77 /* Event-9.png */,
 				D325206B1DA237BA00F42C77 /* Event-10.png */,
 				D325206D1DA2380B00F42C77 /* Event-7.png */,
+				D325209C1DA3C07D00F42C77 /* track-tick.png */,
+				D325209D1DA3C07D00F42C77 /* track-tick@2x.png */,
+				D325209E1DA3C07D00F42C77 /* track-tick@3x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -323,11 +332,13 @@
 				D32520691DA237AA00F42C77 /* Event-4.png in Resources */,
 				D325205A1DA195F100F42C77 /* Event-6.png in Resources */,
 				D325205F1DA196E300F42C77 /* Event-9.png in Resources */,
+				D325209F1DA3C07D00F42C77 /* track-tick.png in Resources */,
 				D3BBA4BF1DA127A2008EC46D /* grid-view@2x.png in Resources */,
 				D3BBA4BE1DA127A2008EC46D /* grid-view.png in Resources */,
 				D3BBA4AC1DA10C5F008EC46D /* event-icon.png in Resources */,
 				D3BBA4571DA0E29A008EC46D /* Assets.xcassets in Resources */,
 				D3BBA4AD1DA10C5F008EC46D /* event-icon@2x.png in Resources */,
+				D32520A01DA3C07D00F42C77 /* track-tick@2x.png in Resources */,
 				D3BBA4B01DA11ACF008EC46D /* list-view.png in Resources */,
 				D325204F1DA1930900F42C77 /* sort-icon@2x.png in Resources */,
 				D325206C1DA237BA00F42C77 /* Event-10.png in Resources */,
@@ -337,6 +348,7 @@
 				D325206A1DA237AA00F42C77 /* Event-5.png in Resources */,
 				D325206E1DA2380B00F42C77 /* Event-7.png in Resources */,
 				D3BBA4521DA0E29A008EC46D /* Main.storyboard in Resources */,
+				D32520A11DA3C07D00F42C77 /* track-tick@3x.png in Resources */,
 				D325205E1DA196E300F42C77 /* Event-8.png in Resources */,
 				D325204E1DA1930900F42C77 /* sort-icon.png in Resources */,
 				D32520671DA237AA00F42C77 /* Event-2.png in Resources */,

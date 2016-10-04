@@ -116,4 +116,10 @@
 +(NSString*)cellIdentifier{
     return @"eventCell";
 }
+//- (IBAction)stopTrackingClicked:(id)sender {
+//    
+//}
+
+
+
 @end
