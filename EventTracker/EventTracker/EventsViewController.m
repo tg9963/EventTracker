@@ -31,7 +31,7 @@
     self.eventsCV.scrollsToTop = NO;
     self.eventsCV.delegate = self;
     self.eventsCV.dataSource = self;
-    isGrid = true;
+    isGrid = false;
     [self.layoutChangeButton setImage:[UIImage imageNamed:@"grid-view"]];
     [self fetchData];
 }
@@ -58,10 +58,10 @@
 - (IBAction)changeLayout:(id)sender {
     if (isGrid==true) {
         isGrid = false;
-        [self.layoutChangeButton setImage:[UIImage imageNamed:@"list-view"]];
+        [self.layoutChangeButton setImage:[UIImage imageNamed:@"grid-view"]];
     }else{
         isGrid = true;
-        [self.layoutChangeButton setImage:[UIImage imageNamed:@"grid-view"]];
+        [self.layoutChangeButton setImage:[UIImage imageNamed:@"list-view"]];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
          [self.eventsCV reloadData];
